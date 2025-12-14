@@ -48,7 +48,7 @@ poetry run python manage.py test
 ## Screenshots
 Add screenshots (e.g., `docs/dashboard.png`, `docs/detail.png`) to showcase the UI on GitHub. Reference them here once captured:
 ```markdown
-![Detail view]([https://github.com/Pouyazadmehr83/Noteapp/blob/raw/docs/Screenshot_20251215_030825.png](https://github.com/Pouyazadmehr83/Noteapp/blob/main/docs/Screenshot_20251215_030825.png))
+![Detail view](https://raw.githubusercontent.com/Pouyazadmehr83/Noteapp/main/docs/Screenshot_20251215_030825.png)
 ```
 
 ## Deployment Notes
