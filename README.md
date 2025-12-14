@@ -48,7 +48,7 @@ poetry run python manage.py test
 ## Screenshots
 Add screenshots (e.g., `docs/dashboard.png`, `docs/detail.png`) to showcase the UI on GitHub. Reference them here once captured:
 ```markdown
-![Detail view](/home/pouyi/Pictures/Screenshots/Screenshot_20251215_030825.png)
+![Detail view](docs/Screenshot_20251215_030825.png)
 ```
 
 ## Deployment Notes
