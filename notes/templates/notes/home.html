@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Your Notes{% endblock %}
+
+{% block content %}
+<header class="page-header">
+    <form method="get" class="search-form">
+        <input type="search" name="q" value="{{ query }}" placeholder="Search notes">
+        <button class="btn btn-ghost" type="submit">Search</button>
+    </form>
+    <a class="btn btn-primary" href="{% url 'notes:create' %}">New note</a>
+</header>
+
+{% if page_obj.object_list %}
+<section class="card-grid">
+    {% for note in page_obj %}
+    <a class="note-card" href="{% url 'notes:detail' note.pk %}">
+        <h2>{{ note.title }}</h2>
+        <p>{{ note.content|truncatewords:30 }}</p>
+    </a>
+    {% endfor %}
+</section>
+{% else %}
+<p class="empty-state">
+    {% if query %}
+    No notes matched "{{ query }}".
+    {% else %}
+    You have not created any notes yet.
+    {% endif %}
+</p>
+{% endif %}
+
+{% if page_obj.paginator.num_pages > 1 %}
+<nav class="pagination">
+    <div>
+        {% if page_obj.has_previous %}
+        <a class="btn btn-ghost" href="?page={{ page_obj.previous_page_number }}{% if query %}&amp;q={{ query|urlencode }}{% endif %}">Previous</a>
+        {% endif %}
+    </div>
+    <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+    <div>
+        {% if page_obj.has_next %}
+        <a class="btn btn-ghost" href="?page={{ page_obj.next_page_number }}{% if query %}&amp;q={{ query|urlencode }}{% endif %}">Next</a>
+        {% endif %}
+    </div>
+</nav>
+{% endif %}
+{% endblock %}

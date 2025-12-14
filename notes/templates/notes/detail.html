@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}{{ note.title }}{% endblock %}
+
+{% block content %}
+<section class="panel">
+    <h1>{{ note.title }}</h1>
+    <p>{{ note.content }}</p>
+    <div class="actions">
+        <a class="btn btn-primary" href="{% url 'notes:read' %}">Back to all notes</a>
+        <a class="btn btn-secondary" href="{% url 'notes:update' note.pk %}">Edit</a>
+        <a class="btn btn-danger" href="{% url 'notes:delete' note.pk %}">Delete</a>
+    </div>
+</section>
+{% endblock %}

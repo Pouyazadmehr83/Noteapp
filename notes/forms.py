@@ -6,6 +6,6 @@ class NoteForm(forms.ModelForm):
         model = Note
         fields = ["title", "content"]
         widgets = {
-            "title": forms.TextInput(attrs={"placeholder": "عنوان"}),
-            "content": forms.Textarea(attrs={"placeholder": "متن نوت", "rows": 6}),
+            "title": forms.TextInput(attrs={"placeholder": "title"}),
+            "content": forms.Textarea(attrs={"placeholder": "content", "rows": 6}),
         }

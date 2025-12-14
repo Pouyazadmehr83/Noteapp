@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Edit {{ note.title }}{% endblock %}
+
+{% block content %}
+<section class="panel">
+    <h1>Edit note</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+        <div class="form-errors">
+            {{ form.non_field_errors }}
+        </div>
+        {% endif %}
+        <div class="field">
+            <label for="{{ form.title.id_for_label }}">Title</label>
+            {{ form.title }}
+            {% if form.title.errors %}
+            <div class="field-errors">{{ form.title.errors }}</div>
+            {% endif %}
+        </div>
+        <div class="field">
+            <label for="{{ form.content.id_for_label }}">Content</label>
+            {{ form.content }}
+            {% if form.content.errors %}
+            <div class="field-errors">{{ form.content.errors }}</div>
+            {% endif %}
+        </div>
+        <div class="actions">
+            <button class="btn btn-primary" type="submit">Save changes</button>
+            <a class="btn btn-ghost" href="{% url 'notes:detail' note.pk %}">Cancel</a>
+        </div>
+    </form>
+</section>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Delete {{ note.title }}{% endblock %}
+
+{% block content %}
+<section class="panel">
+    <h1>Delete note</h1>
+    <p>Are you sure you want to delete <strong>{{ note.title }}</strong>? This action cannot be undone.</p>
+    <form method="post">
+        {% csrf_token %}
+        <div class="actions">
+            <a class="btn btn-ghost" href="{% url 'notes:detail' note.pk %}">Cancel</a>
+            <button class="btn btn-danger" type="submit">Delete</button>
+        </div>
+    </form>
+</section>
+{% endblock %}
